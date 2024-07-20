@@ -1,0 +1,8 @@
+functions-framework==3.*
+pandas
+yfinance
+google-cloud-storage
+google-cloud-secret-manager
+google-auth
+google-auth-oauthlib
+flask==2.3.3
