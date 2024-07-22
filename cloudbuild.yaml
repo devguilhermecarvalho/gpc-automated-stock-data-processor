@@ -1,23 +1,19 @@
 options:
   logging: CLOUD_LOGGING_ONLY
 
-substitutions:
-  _REGION: 'us-central1'
-  _CLOUD_FUNCTIONS_NAME: 'project-test-cf-market-data'
-
 steps:
   - name: 'gcr.io/cloud-builders/gcloud'
     args:
       - 'functions'
       - 'deploy'
-      - '_CLOUD_FUNCTIONS_NAME' # Cloud Functions Name
+      - 'project-test-cf-market-data' # Cloud Function name
       - '--region'
-      - '${_REGION}' # Region
+      - 'us-central1'
       - '--runtime'
       - 'python39'
       - '--trigger-http'
       - '--entry-point' 
-      - 'main' # main.py Function Name
+      - 'main' # main.py function name
       - '--source'
       - '.'
 
@@ -25,15 +21,15 @@ steps:
     args:
       - 'functions'
       - 'describe'
-      - '_CLOUD_FUNCTIONS_NAME' # Cloud Functions Name
+      - 'project-test-cf-market-data'
       - '--region'
-      - '${_REGION}' # Region
+      - 'us-central1'
 
   - name: 'gcr.io/cloud-builders/gcloud'
     args:
       - 'functions'
       - 'list'
       - '--region'
-      - '${_REGION}' # Region
+      - 'us-central1'
       - '--format'
       - 'json'
