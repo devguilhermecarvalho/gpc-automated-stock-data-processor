@@ -6,3 +6,5 @@ google-cloud-secret-manager
 google-auth
 google-auth-oauthlib
 flask==2.3.3
+pyarrow
+fastparquet

@@ -54,7 +54,3 @@ Criação de contas de serviços:
             - Armazena os arquivos históricos como .parquet.
         - storage-gold-market-data
             - Armazena os arquivos .CSV prontos para carregamento no BigQuery e análises.
-
-
-gcloud projects add-iam-policy-binding project-data-market \ --member=serviceAccout:data-engineer-administrator@project-automated-data-market.iam.gserviceaccount.com --role=roles/storage.objectViewer
-
