@@ -93,12 +93,14 @@ class TransformMarketData:
             2. Retorna o DataFrame com os dados históricos.
 
         A função transform_and_save_market_data() faz o seguinte:
-            1. Chama a função load_historical_data() para obter os dados históricos.
-            2. Resetar o índice do DataFrame.
-            3. Arredondar as colunas 'Open', 'High', 'Low', 'Close', 'Adj Close' e 'Volume' para 5 casas decimais.
-            4. Salvar o DataFrame transformado como CSV.
-            6. Faz o upload do arquivo CSV para a pasta  o bucket .
-            8. Retornar uma resposta com o status 200 se o upload for bem-sucedido, ou 500 em caso de erro.
+            1. Carrega os dados históricos do arquivo Raw Parquet.
+            2. Calcula a média entre a abertura e o fechamento.
+            3. Calcula a diferença entre a abertura e o fechamento.
+            4. Calcula a variação percentual do dia passado e do dia atual.
+            5. Calcula a variação percentual do mês passado e do mês atual.
+            6. Salva o DataFrame transformado em um arquivo CSV localmente.
+            7. Faz o upload do arquivo CSV para o bucket.
+            8. Retorna uma resposta com o status 200 se o upload for bem-sucedido, ou 500 em caso de erro.
     """
     def __init__(self, request):
         self.request = request

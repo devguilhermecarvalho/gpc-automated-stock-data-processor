@@ -1,20 +1,23 @@
 #!/bin/bash
 
+# Como executar o arquivo no GCloud CMD:
+# 1. Abra a CLI do GCloud e faça a abertura do Editor.
+# 2. Crie um novo arquivo .sh e copie o conteúdo abaixo.
+# 3. Navegue até o diretório:
+#    > chmod +x [nome_do_arquivo].sh
+# 4. Execute o script:
+#    > ./[nome_do_arquivo].sh
+
 # Criando Conta de Serviço:
 gcloud iam service-accounts create data-engineer-administrator \
     --description="Usuário administrador geral" \
     --display-name="Data Engineer - Administrator" 
 
-# Lista Contas de Serviço:
+# Listar Contas de Serviço:
 gcloud iam service-accounts list --project=project-automated-data-market
 
-# Como executar o arquivo no GCloud CMD:
-# 1. Navegue até o diretório:
-#    > chmod +x assign_roles.sh
-# 2. Execute o script:
-#    > ./assign_roles.sh
 
-# Substitua USER_EMAIL pelo e-mail da conta de serviço e PROJECT_ID pelo ID do seu projeto
+# Após a criação do usuário, é necessário atribuir as permissões:
 USER_EMAIL="data-engineer-administrator@project-automated-data-market.iam.gserviceaccount.com"
 PROJECT_ID="project-automated-data-market"
 REGION="us-central1"
