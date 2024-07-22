@@ -56,7 +56,7 @@ class GetHistoricalData:
                 data = yf.download(stock, start=request_start_date, end=request_end_date)
                 df = pd.DataFrame(data)
                 df['Stock'] = stock  # Adiciona uma coluna com o nome da ação
-                df[['Open', 'High', 'Low', 'Close', 'Adj Close', 'Volume']] = df[['Open', 'High', 'Low', 'Close', 'Adj Close', 'Volume']].round(3)
+                df.reset_index(inplace=True)  # Resetar o índice do DataFrame
                 all_dataframes.append(df)
 
             # Concatenando todos os DataFrames em um único DataFrame
@@ -64,7 +64,7 @@ class GetHistoricalData:
 
             # Salvando os dados brutos em formato Parquet
             parquet_filename = '/tmp/raw_historical_data_market.parquet'
-            final_df.to_parquet(parquet_filename, index=False)
+            final_df.to_parquet(parquet_filename)
 
             # Criação do cliente de armazenamento do Google Cloud
             client = storage.Client()
@@ -126,9 +126,17 @@ class TransformMarketData:
             # Carregar dados históricos
             df = self.load_historical_data()
 
-            # Transformar os dados
-            df = df.reset_index()
-            df[['Open', 'High', 'Low', 'Close', 'Adj Close', 'Volume']] = df[['Open', 'High', 'Low', 'Close', 'Adj Close', 'Volume']].round(5)
+            # Calcula a média entre a abertura e o fechamento
+            df['Average'] = (df['Open'] + df['Close']) / 2
+
+            # Calcula a diferença entre a abertura e o fechamento
+            df['Difference'] = df['Close'] - df['Open']
+
+            # Calcula a variação percentual do dia passado e do dia atual
+            df['Daily_Variation'] = (df['Close'] - df['Open']) / df['Open'] * 100
+
+            # Calcula a variação percentual do mês passado e do mês atual
+            df['Monthly_Variation'] = (df['Close'] - df['Open']) / df['Open'] * 100
 
             # Salvar o DataFrame como CSV localmente
             csv_filename = '/tmp/stocks-market-data.csv'
@@ -139,7 +147,7 @@ class TransformMarketData:
 
             # Salvar o arquivo transformado no bucket
             current_date = datetime.now().strftime('%Y-%m-%d')
-            destination_blob_name = f'storage-gold-market-data/stocks-market-data_{current_date}.csv'
+            destination_blob_name = f'storage-bronze-market-data/stocks-market-data_{current_date}.csv'
             bucket = client.bucket('project-data-market')
             blob = bucket.blob(destination_blob_name)
             blob.upload_from_filename(csv_filename)
