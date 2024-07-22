@@ -9,8 +9,9 @@ Neste projeto estarei fazendo a extração de ações da bolsa de valores atrav�
 - Criação do Repositório no Github e Projeto no Google Cloud:
 - Repositório: https://github.com/devguilhermecarvalho/gcloud-automated-marketdata
 - Google Project:
-    - ID do projeto: project-automated-marketdata
-    - Número do projeto: 79429747448
+    - **Nome do Projeto:** Project Automated Data Market
+    - **ID do projeto:** project-automated-data-market
+    - **Número do projeto:** 465934427557
 
 ## Cloud IAM - Configuração
 Criação de contas de serviços:
@@ -44,3 +45,16 @@ Criação de contas de serviços:
 - Nome: Project-test-build-market-data
 - Evento: Enviar para uma ramificação (Será atualizado conforme o repositório)
 - Fonte: 1gen
+
+# Cloud Storage
+- **Buckets:**
+    - project-data-market
+    - **Pastas:**
+        - storage-raw-market-data
+            - Armazena os arquivos históricos como .parquet.
+        - storage-gold-market-data
+            - Armazena os arquivos .CSV prontos para carregamento no BigQuery e análises.
+
+
+gcloud projects add-iam-policy-binding project-data-market \ --member=serviceAccout:data-engineer-administrator@project-automated-data-market.iam.gserviceaccount.com --role=roles/storage.objectViewer
+

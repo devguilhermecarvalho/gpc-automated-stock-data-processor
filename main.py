@@ -3,7 +3,6 @@ import pandas as pd
 import yfinance as yf
 from google.cloud import storage
 from flask import make_response
-import os
 from datetime import datetime
 
 @functions_framework.http
@@ -28,7 +27,7 @@ def hello_http(request):
         
         # Configurar o cliente do Google Cloud Storage
         client = storage.Client()
-        bucket_name = 'data_market_api_project'
+        bucket_name = 'project-data-market'
         bucket = client.bucket(bucket_name)
         
         # Nome do arquivo no bucket
