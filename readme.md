@@ -2,22 +2,25 @@
 
 Estre projeto foi desenvolvido para solucionar um [desafio](./docs/questions.md) que tem por objetivo aprofundar o entendimento, a prática e a integração dos servicos da Google Cloud.
 
+![1721694906293](image/readme/1721694906293.png)
+
 - **Cloud IAM**
+
   - Criação de chaves de serviço, criação e gerenciamento de usuários.
-
 - **Cloud Functions**
+
   - Criação de functions com Python e a utilização do serviço de autenticação.
-
 - **Cloud Build**
+
   - Gerenciamento de controle de versão e integração com o Cloud Functions.
-
 - **Cloud Scheduler**
+
   - Agendamento de gatilhos específicos do Cloud Functions.
-
 - **Cloud Storage**
-  - Armazenamento de camadas de ETL diretamente do Cloud Functions.
 
+  - Armazenamento de camadas de ETL diretamente do Cloud Functions.
 - **BigQuery**
+
   - Leitura e transformações de dados em SQL.
 
 ---
@@ -29,7 +32,7 @@ Neste projeto realizei a extração de ações da bolsa de valores através da A
 ## **Criação do Projeto**
 
 - Criação do Repositório no Github e Projeto no Google Cloud:
-- **Repositório:** <https://github.com/devguilhermecarvalho/gcloud-automated-marketdata>
+- **Repositório:** [https://github.com/devguilhermecarvalho/gcloud-automated-marketdata](https://github.com/devguilhermecarvalho/gcloud-automated-marketdata)
 - **Google Cloud Project:**
   - **Nome do Projeto:** Project Automated Data Market
   - **ID do projeto:** project-automated-data-market
@@ -44,9 +47,10 @@ Para criação das contas de usuários eu optei por escrever um script que ao se
 Contas Criadas:
 
 - **Data Engineer - Administrator**
-  - Controle total, apenas das ferramentas utilizadas.
 
+  - Controle total, apenas das ferramentas utilizadas.
 - **Analista - Administrator**
+
   - Controle de utilização apenas do BigQuery e do Looker.
 
 ### **Chave de Acesso:**
@@ -56,7 +60,6 @@ A Chave de Acesso/Service Account foi criada apenas para o usuário administrado
 ## Cloud Functions
 
 - Para a utilização é necessário a ativação das APIs: Cloud Build, Cloud Functions, Cloud Logging API, Cloud Pub/Sub, Cloud Run Admin API
-
 - Ambiente: 2nd gen
 - Tipo de Gatilho: HTTPS
 - Requer autenticação com o Cloud IAM
@@ -81,6 +84,7 @@ O Cloud Build é reponsável pelo versionamento do código e um facilitador de d
       - Storage que fica disponível para armazenamento de resultados e processos finais.
 
 # Cloud Scheduler
+
 O job do Cloud Scheduler foi configurado de forma simples para ser executado através do gatilho HTTP com o método POST às 21hs de segunda a sexta-feira.
 
 # BigQuery
