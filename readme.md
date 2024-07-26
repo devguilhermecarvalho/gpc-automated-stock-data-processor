@@ -7,6 +7,8 @@ Este projeto foi desenvolvido para solucionar um [desafio](./docs/questions.md) 
 ## Pipeline
 ![Imagem do Pipeline](assets/images/readme/pipeline.png)
 
+[Youtube - Vídeo de Execução do Projeto](https://youtu.be/odwkJvR5TtI)
+
 ## Ferramentas Utilizadas
 
 - **Cloud IAM**
