@@ -5,7 +5,7 @@
 Este projeto foi desenvolvido para solucionar um [desafio](./docs/questions.md) que tem por objetivo aprofundar o entendimento, a prática e a integração dos serviços do Google Cloud. Para isso, desenvolvi um pipeline simples de ETL de ações da API do Yahoo Finance, com uma atualização diária automatizada da execução do script.
 
 ## Pipeline
-![1721694906293](assets/images/readme/1721694906293.png)
+![Imagem do Pipeline](assets/images/readme/pipeline.png)
 
 ## Ferramentas Utilizadas
 
@@ -46,14 +46,14 @@ Neste projeto, realizei a extração de ações da bolsa de valores através da 
 
 Para criação das contas de usuários eu optei por escrever um script que ao ser executado faz a criação do usuário e já atribui as permissões e funções.
 
-[Script: Criação do Usuário Admin:](.src/scripts/assign_admin_roles.sh)
-[Script: Criação do Usuário de Analista:](.src/scripts/assign_analytics_roles.sh)
+[Script: Criação do Usuário Admin:](src/scripts/assign_admin_roles.sh)
+[Script: Criação do Usuário de Analista:](src/scripts/assign_analytics_roles.sh)
 
 Contas Criadas:
 
 - **Data Engineer - Administrator**
 
-  - Controle total, apenas das ferramentas utilizadas.
+  - Controle total apenas das ferramentas utilizadas.
 - **Analista - Administrator**
 
   - Controle de utilização apenas do BigQuery e do Locker.
@@ -110,4 +110,4 @@ As ferramentas disponíveis no Google Cloud e suas interfaces gráficas fornecem
 
 ### Entre em contato para mais informações:
 
-[LinkedIn:](https://www.linkedin.com/in/devguilhermecarvalho/)
+[LinkedIn - Guilherme Carvalho](https://www.linkedin.com/in/devguilhermecarvalho/)
