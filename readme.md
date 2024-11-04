@@ -1,6 +1,4 @@
-# Projeto
-
-## Automatiza o processo de Extração, Transformação e Carregamento (ETL) de dados de mercado no Google Cloud Platform
+# Projeto: Automatiza o processo de Extração, Transformação e Carregamento (ETL) de dados de mercado financeiro no Google Cloud Platform
 
 Este projeto foi desenvolvido para solucionar um [desafio](./docs/questions.md) que tem por objetivo aprofundar o entendimento, a prática e a integração dos serviços do Google Cloud. Para isso, desenvolvi um pipeline simples de ETL de ações da API do Yahoo Finance, com uma atualização diária automatizada da execução do script.
 
